@@ -103,8 +103,6 @@ class MedEdit(QWidget):
         old_value = int(self.og_paquetes)
         new_value, ok = QInputDialog.getInt(self, "Cajas", "Nueva cantidad total de Cajas:", old_value)
         diff = new_value - old_value
-
-        units, ok = QInputDialog.getInt(self, "Unidades por caja", "Unidades por caja modificada:")
         if not ok:
             QMessageBox.warning(self, "Meds", "No se ha podido modificar las cajas, porque no ingreso una cantidad"
                                               " de unidades por paquete.")
@@ -125,7 +123,7 @@ class MedEdit(QWidget):
                                 fecha_creacion=date,
                                 fecha_vencimiento=date,
                                 lote_id=lote_id,
-                                unidades_por_paquete=units)
+                                unidades_por_paquete=0)
         self.changes_made.click()
         self.close()
 
